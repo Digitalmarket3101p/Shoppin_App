@@ -21,32 +21,31 @@ const ProductItem = props => {
       <View style={styles.touchable}>
         <Touchable onPress={props.onViewDetail} useForeground>
           <View>
-
-          <View style={styles.imgcontainer}>
-            <Image
-              style={styles.img}
-              source={{
-                uri: props.image,
-              }}
+            <View style={styles.imgcontainer}>
+              <Image
+                style={styles.img}
+                source={{
+                  uri: props.image,
+                }}
               />
-          </View>
-          <View style={styles.details}>
-            <Text style={styles.title}>{props.title}</Text>
-            <Text style={styles.price}>${props.price}</Text>
-          </View>
-          <View style={styles.action}>
-            <Button
-              color={Colors.primary}
-              title="View Details"
-              onPress={props.onViewDetail}
+            </View>
+            <View style={styles.details}>
+              <Text style={styles.title}>{props.title}</Text>
+              <Text style={styles.price}>${props.price}</Text>
+            </View>
+            <View style={styles.action}>
+              <Button
+                color={Colors.primary}
+                title="View Details"
+                onPress={props.onViewDetail}
               />
-            <Button
-              color={Colors.primary}
-              title="To Cart"
-              onPress={props.onAddCart}
+              <Button
+                color={Colors.primary}
+                title="To Cart"
+                onPress={props.onAddCart}
               />
+            </View>
           </View>
-              </View>
         </Touchable>
       </View>
     </View>
@@ -98,7 +97,7 @@ const styles = StyleSheet.create({
   },
   touchable: {
     overflow: 'hidden',
-    borderRadius:10
+    borderRadius: 10,
   },
 });
 export default ProductItem;

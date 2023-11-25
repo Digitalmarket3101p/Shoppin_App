@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     height: 300,
   },
   price: {
-    fontSize: 20,
+    fontSize: 26,
     textAlign: 'center',
     color: 'blue',
     marginVertical: 20,
@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
   descrption: {
     fontSize: 14,
     textAlign: 'center',
+    fontFamily:'Bold',
     marginHorizontal:20
   },
   actions:{
