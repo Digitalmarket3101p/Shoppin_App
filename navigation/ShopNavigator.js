@@ -6,7 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import ProductOverviewScreen from '../screens/shop/ProductOverviewScreen';
 import Colors from '../constants/Colors';
 import { NavigationContainer } from '@react-navigation/native';
-
+import ProductDetailScreen from '../screens/shop/ProductDetailScreen';
 const Stack = createStackNavigator();
 
 const ProductsNavigator = () => {
@@ -20,8 +20,12 @@ const ProductsNavigator = () => {
           headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primary,
         }}>
         <Stack.Screen
-          name="ProductsOverview"
+          name="All Products"
           component={ProductOverviewScreen}
+        />
+         <Stack.Screen
+          name="ProductDetailScreen"
+          component={ProductDetailScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
