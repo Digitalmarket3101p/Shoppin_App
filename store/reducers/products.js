@@ -11,7 +11,7 @@ const productReducer = (state = initialState, action) => {
     // case 'SOME_ACTION':
     //   return updatedState;
     default:
-      return state.availableProducts;
+      return state;
   }
 };
 

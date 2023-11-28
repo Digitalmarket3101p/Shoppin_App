@@ -1,13 +1,16 @@
 import {Button, Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import React, {useLayoutEffect} from 'react';
-import {useSelector} from 'react-redux';
+import {useSelector,useDispatch} from 'react-redux';
 import Colors from '../../constants/Colors';
-
+import * as cartActions from '../../store/actions/cart';
 const ProductDetailScreen = props => {
   const selectedProduct = useSelector(state => {
+    console.log("hello",state);
     const productId = props.route.params.productId;
-    return state.products.find(prod => prod.id === productId);
+    return state.products.availableProducts.find(prod => prod.id === productId);
   });
+
+  const dispatch=useDispatch()
   useLayoutEffect(() => {
     props.navigation.setOptions({
       title: selectedProduct.title,
@@ -19,7 +22,9 @@ const ProductDetailScreen = props => {
       <Image style={styles.img} source={{uri: selectedProduct.imgUrl}} />
       <View style={styles.actions}>
 
-      <Button color={Colors.primary} title="Add To Cart" onPress={() => {}} />
+      <Button color={Colors.primary} title="Add To Cart" onPress={() => {
+        dispatch(cartActions.addToCart(selectedProduct))
+      }} />
       </View>
       <Text style={styles.price}>${selectedProduct.price}</Text>
       <Text style={styles.descrption}>{selectedProduct.description}</Text>

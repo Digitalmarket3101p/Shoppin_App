@@ -13,8 +13,8 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-shopping_App-shopping_AppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-shopping_App-shopping_AppTests.a */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		7A39AC8B486D4376815D5457 /* Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 086DCFED9AB444BA8AEA13E3 /* Bold.ttf */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		F9511D8E6889499499E6E04E /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FCF2BE14FA44024B40C39AA /* OpenSans-Regular.ttf */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +32,7 @@
 		00E356EE1AD99517003FC87E /* shopping_AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = shopping_AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* shopping_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = shopping_AppTests.m; sourceTree = "<group>"; };
+		086DCFED9AB444BA8AEA13E3 /* Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Bold.ttf; path = ../assets/fonts/Bold.ttf; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* shopping_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shopping_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = shopping_App/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = shopping_App/AppDelegate.mm; sourceTree = "<group>"; };
@@ -40,14 +41,13 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = shopping_App/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-shopping_App-shopping_AppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-shopping_App-shopping_AppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-shopping_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopping_App.debug.xcconfig"; path = "Target Support Files/Pods-shopping_App/Pods-shopping_App.debug.xcconfig"; sourceTree = "<group>"; };
+		3FCF2BE14FA44024B40C39AA /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Regular.ttf"; path = "../assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-shopping_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopping_App.release.xcconfig"; path = "Target Support Files/Pods-shopping_App/Pods-shopping_App.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-shopping_App-shopping_AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopping_App-shopping_AppTests.debug.xcconfig"; path = "Target Support Files/Pods-shopping_App-shopping_AppTests/Pods-shopping_App-shopping_AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-shopping_App.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-shopping_App.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = shopping_App/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-shopping_App-shopping_AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopping_App-shopping_AppTests.release.xcconfig"; path = "Target Support Files/Pods-shopping_App-shopping_AppTests/Pods-shopping_App-shopping_AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		086DCFED9AB444BA8AEA13E3 /* Bold.ttf */ = {isa = PBXFileReference; name = "Bold.ttf"; path = "../assets/fonts/Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		3FCF2BE14FA44024B40C39AA /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; name = "OpenSans-Regular.ttf"; path = "../assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +110,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7F5F93F1CDBB44999B2CC1CF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				086DCFED9AB444BA8AEA13E3 /* Bold.ttf */,
+				3FCF2BE14FA44024B40C39AA /* OpenSans-Regular.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,16 +162,6 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		7F5F93F1CDBB44999B2CC1CF /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				086DCFED9AB444BA8AEA13E3 /* Bold.ttf */,
-				3FCF2BE14FA44024B40C39AA /* OpenSans-Regular.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
