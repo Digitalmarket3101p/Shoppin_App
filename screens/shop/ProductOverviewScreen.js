@@ -6,7 +6,7 @@ import * as cartActions from '../../store/actions/cart';
 const ProductOverviewScreen = props => {
   const products = useSelector(state => state.products);
   const dispatch = useDispatch();
-  console.log(products);
+  // console.log(products);
   return (
     <FlatList
       data={products.availableProducts}
