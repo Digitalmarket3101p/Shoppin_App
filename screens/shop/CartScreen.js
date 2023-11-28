@@ -5,6 +5,7 @@ import Colors from '../../constants/Colors';
 import CartItem from '../../components/shop/CartItem';
 import {createSelector} from 'reselect';
 import * as cartActions from '..//../store/actions/cart';
+import * as orderActions from '..//../store/actions/order';
 const selectCartItems = state => {
   const transformedCartItems = [];
   for (const key in state.cart.items) {
@@ -40,6 +41,9 @@ const CartScreen = props => {
           color={Colors.accent}
           title="Order Now"
           disabled={cartItems.length === 0}
+          onPress={() => {
+            dispatch(orderActions.addOrder(selectCartItems, cartTotalAmount));
+          }}
         />
       </View>
       <FlatList
