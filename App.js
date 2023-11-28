@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import React from 'react';
-
+import { NavigationContainer } from '@react-navigation/native';
 import {Provider} from 'react-redux';
 import {configureStore, combineReducers} from '@reduxjs/toolkit';
 import productReducer from './store/reducers/products';
@@ -19,7 +19,11 @@ const store = configureStore({
 const App = () => {
   return (
     <Provider store={store}>
-      <ShopNavigator />
+      
+      <NavigationContainer>
+        <ShopNavigator />
+      </NavigationContainer>
+    
     </Provider>
   );
 };
