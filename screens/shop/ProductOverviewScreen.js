@@ -20,7 +20,7 @@ const ProductOverviewScreen = props => {
 
   return (
     <FlatList
-      data={products?.availableProducts}
+      data={products.userProducts}
       renderItem={itemData => (
         <ProductItem
           image={itemData.item.imgUrl}

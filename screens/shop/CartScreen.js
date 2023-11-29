@@ -8,7 +8,7 @@ import * as cartActions from '..//../store/actions/cart';
 import * as orderActions from '..//../store/actions/order';
 const selectCartItem = state => {
   const transformedCartItems = [];
-  console.log("state",state.cart.items);
+  console.log('state', state.cart.items);
   for (const key in state.cart.items) {
     transformedCartItems.push({
       productId: key,
@@ -36,7 +36,10 @@ const CartScreen = props => {
     <View style={styles.screen}>
       <View style={styles.summary}>
         <Text style={styles.summaryText}>
-          Total: <Text style={styles.amount}>${cartTotalAmount}</Text>
+          Total:{' '}
+          <Text style={styles.amount}>
+            ${Math.round(cartTotalAmount.toFixed(2) * 100) / 100}
+          </Text>
         </Text>
         <Button
           color={Colors.accent}
@@ -74,6 +77,7 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   summary: {
+    backgroundColor: 'white',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -85,7 +89,6 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 5,
     borderRadius: 10,
-    backgroundColor: 'white',
   },
   amount: {
     color: Colors.primary,

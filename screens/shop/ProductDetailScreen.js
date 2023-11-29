@@ -7,7 +7,7 @@ const ProductDetailScreen = props => {
   const selectedProduct = useSelector(state => {
     // console.log("hello",state);
     const productId = props.route.params.productId;
-    return state.products.availableProducts.find(prod => prod.id === productId);
+    return state.products.userProducts.find(prod => prod.id === productId);
   });
 
   const dispatch = useDispatch();
