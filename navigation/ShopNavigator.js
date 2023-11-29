@@ -41,6 +41,7 @@ const ProductsNavigator = () => {
   return (
     <Drawer.Navigator initialRouteName="Products">
       <Drawer.Screen name="Products" component={ProductStack}  options={{
+        headerTitle:'All products',
           headerRight: () => (
             <TouchableOpacity
               onPress={() => {

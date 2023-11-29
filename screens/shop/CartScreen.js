@@ -6,8 +6,9 @@ import CartItem from '../../components/shop/CartItem';
 import {createSelector} from 'reselect';
 import * as cartActions from '..//../store/actions/cart';
 import * as orderActions from '..//../store/actions/order';
-const selectCartItems = state => {
+const selectCartItem = state => {
   const transformedCartItems = [];
+  console.log("state",state.cart.items);
   for (const key in state.cart.items) {
     transformedCartItems.push({
       productId: key,
@@ -22,7 +23,7 @@ const selectCartItems = state => {
   );
 };
 const cartItemsSelector = createSelector(
-  [selectCartItems],
+  [selectCartItem],
   cartItems => cartItems,
 );
 
@@ -42,7 +43,8 @@ const CartScreen = props => {
           title="Order Now"
           disabled={cartItems.length === 0}
           onPress={() => {
-            dispatch(orderActions.addOrder(selectCartItems, cartTotalAmount));
+            console.log('hjhjh', cartItems);
+            dispatch(orderActions.addOrder(cartItems, cartTotalAmount));
           }}
         />
       </View>
@@ -54,6 +56,7 @@ const CartScreen = props => {
             qunatity={itemData.item.quantity}
             title={itemData.item.productTitle}
             amount={itemData.item.sum}
+            deletable
             onRemove={() => {
               dispatch(cartActions.removefromcart(itemData.item.productId));
             }}
