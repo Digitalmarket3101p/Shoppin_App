@@ -43,7 +43,7 @@ const CartScreen = props => {
           title="Order Now"
           disabled={cartItems.length === 0}
           onPress={() => {
-            console.log('hjhjh', cartItems);
+            // console.log('hjhjh', cartItems);
             dispatch(orderActions.addOrder(cartItems, cartTotalAmount));
           }}
         />

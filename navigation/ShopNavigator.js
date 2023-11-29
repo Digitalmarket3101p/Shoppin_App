@@ -10,6 +10,7 @@ import ProductOverviewScreen from '../screens/shop/ProductOverviewScreen';
 import ProductDetailScreen from '../screens/shop/ProductDetailScreen';
 import OrderScreen from '../screens/shop/OrderScreen';
 import Colors from '../constants/Colors';
+import UserProductScreen from '../screens/user/UserProductScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -54,10 +55,24 @@ const ProductsNavigator = () => {
                 size={30}
                 color={Platform.OS === 'android' ? 'white' : Colors.primary}
               />
+              
             </TouchableOpacity>
+
+          ),
+          drawerIcon: ({ color, size }) => (
+            <Icon name="list" color={color} size={size} />
           ),
         }}/>
-      <Drawer.Screen name="Orders" component={OrderScreen} />
+      <Drawer.Screen name="Orders" component={OrderScreen} options={{
+          drawerIcon: ({ color, size }) => (
+            <Icon name="bookmarks" color={color} size={size} />
+          ),
+        }} />
+      <Drawer.Screen name="Admin" component={UserProductScreen}  options={{
+          drawerIcon: ({ color, size }) => (
+            <Icon name="settings" color={color} size={size} />
+          ),
+        }}/>
     </Drawer.Navigator>
   );
 };
