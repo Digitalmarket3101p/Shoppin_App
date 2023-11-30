@@ -48,16 +48,16 @@ const styles = StyleSheet.create({
 
   },
   quantity: {
-    fontFamily: 'OpenSans-Bold',
+    fontFamily: 'Bold',
     color: Colors.primary,
     fontSize: 18,
   },
   title: {
-    fontFamily: 'OpenSans-Bold',
+    fontFamily: 'Bold',
     fontSize: 16,
   },
   amount: {
-    fontFamily: 'OpenSans-Bold',
+    fontFamily: 'Bold',
     fontSize: 16,
   },
   deleteButton: {

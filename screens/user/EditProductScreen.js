@@ -7,6 +7,7 @@ import {
   View,
   TouchableOpacity,
   Alert,
+  Keyboard,
 } from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -64,6 +65,11 @@ const EditProductScreen = ({route, navigation}) => {
             style={styles.input}
             value={title}
             onChangeText={text => setTitle(text)}
+            keyboardType="default"
+            autoCapitalize='sentences'
+            autoCorrect
+            returnKeyType='next'
+            
           />
         </View>
         <View style={styles.form}>
@@ -82,6 +88,7 @@ const EditProductScreen = ({route, navigation}) => {
               style={styles.input}
               value={price}
               onChangeText={text => setPrice(text)}
+              keyboardType="decimal-pad"
             />
           </View>
         )}
