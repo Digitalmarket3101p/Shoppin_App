@@ -58,7 +58,7 @@ const ProductsNavigator = () => {
               <Icon
                 name="shopping-cart"
                 size={30}
-                color={Platform.OS === 'android' ? 'white' : Colors.primary}
+                color= {Colors.primary}
               />
             </TouchableOpacity>
           ),

@@ -19,7 +19,7 @@ const CartItem = props => {
             <Icon
               name="delete"
               size={30}
-              color={Platform.OS === 'android' ? 'white' : Colors.primary}
+              color={Platform.OS === 'android' ? Colors.accent : Colors.primary}
             />
           </TouchableOpacity>
         )}
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   itemdata: {
-    backgroundColor:'pink',
+  
     flexDirection: 'row',
     alignItems: 'center',
    
