@@ -9,10 +9,12 @@ import {
   Alert,
   Keyboard,
 } from 'react-native';
+
 import {useSelector, useDispatch} from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Colors from '../../constants/Colors';
 import * as productActions from '../../store/actions/products';
+import Input from '../../components/UI/Input';
 const REDUCER_UPDATE = 'UPDATE';
 const formReducer = (state, action) => {
   if (action.type === 'UPDATE') {
@@ -124,21 +126,12 @@ const EditProductScreen = ({route, navigation}) => {
   return (
     <ScrollView>
       <View style={styles.formview}>
-        <View style={styles.form}>
-          <Text style={styles.label}>Title</Text>
-          <TextInput
-            style={styles.input}
-            value={formState.inputValues.title}
-            onChangeText={changeHander.bind(this, 'title')}
-            keyboardType="default"
-            autoCapitalize="sentences"
-            autoCorrect
-            returnKeyType="next"
-          />
-          {!formState.inputValidities.title && (
-            <Text>Please enter a valid title!</Text>
-          )}
-        </View>
+        <Input
+          keyboardType="default"
+          autoCapitalize="sentences"
+          autoCorrect
+          returnKeyType="next"
+        />
         <View style={styles.form}>
           <Text style={styles.label}>image</Text>
           <TextInput
@@ -176,19 +169,6 @@ const EditProductScreen = ({route, navigation}) => {
 const styles = StyleSheet.create({
   formview: {
     margin: 20,
-  },
-  label: {
-    fontFamily: 'Bold',
-    marginVertical: 8,
-  },
-  input: {
-    paddingHorizontal: 2,
-    paddingVertical: 5,
-    borderBottomColor: 'pink',
-    borderBottomWidth: 1,
-  },
-  form: {
-    width: '100%',
   },
 });
 
