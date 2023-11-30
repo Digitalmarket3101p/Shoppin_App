@@ -6,6 +6,7 @@ import {
   TextInput,
   View,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -25,6 +26,7 @@ const EditProductScreen = ({route, navigation}) => {
   const [description, setDescription] = useState(
     editedProduct ? editedProduct.description : '',
   );
+
   const submitHandler = useCallback(() => {
     if (editedProduct) {
       dispatch(
@@ -33,6 +35,7 @@ const EditProductScreen = ({route, navigation}) => {
     } else {
       dispatch(productActions.createProduct(title, img, price, description));
     }
+    navigation.goBack();
     // console.log('submitting');
   }, [dispatch, prodId, title, description, img]);
   useEffect(() => {

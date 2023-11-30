@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import Colors from '../../constants/Colors';
+import Card from '../UI/Card';
 
 const ProductItem = props => {
   let Touchable = TouchableOpacity;
@@ -17,7 +18,7 @@ const ProductItem = props => {
     Touchable = TouchableNativeFeedback;
   }
   return (
-    <View style={styles.product}>
+    <Card style={styles.product}>
       <View style={styles.touchable}>
         <Touchable onPress={props.onSelect} useForeground>
           <View>
@@ -39,23 +40,14 @@ const ProductItem = props => {
           </View>
         </Touchable>
       </View>
-    </View>
+    </Card>
   );
 };
 
 const styles = StyleSheet.create({
   product: {
-    backgroundColor: 'white',
-    shadowColor: 'black',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.26,
-    shadowRadius: 8,
-    elevation: 5,
-    borderRadius: 10,
-   
     height: 300,
-    margin: 20,
-    overflow: 'hidden',
+    margin: 20
   },
   img: {
     width: '100%',

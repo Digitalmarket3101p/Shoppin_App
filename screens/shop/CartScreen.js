@@ -6,6 +6,8 @@ import CartItem from '../../components/shop/CartItem';
 import {createSelector} from 'reselect';
 import * as cartActions from '..//../store/actions/cart';
 import * as orderActions from '..//../store/actions/order';
+import Card from '../../components/UI/Card';
+
 const selectCartItem = state => {
   const transformedCartItems = [];
   console.log('state', state.cart.items);
@@ -34,7 +36,7 @@ const CartScreen = props => {
 
   return (
     <View style={styles.screen}>
-      <View style={styles.summary}>
+      <Card style={styles.summary}>
         <Text style={styles.summaryText}>
           Total:{' '}
           <Text style={styles.amount}>
@@ -50,7 +52,7 @@ const CartScreen = props => {
             dispatch(orderActions.addOrder(cartItems, cartTotalAmount));
           }}
         />
-      </View>
+      </Card>
       <FlatList
         data={cartItems}
         keyExtractor={item => item.productId}
@@ -77,18 +79,11 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   summary: {
-    backgroundColor: 'white',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: 20,
     padding: 10,
-    shadowColor: 'black',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.26,
-    shadowRadius: 8,
-    elevation: 5,
-    borderRadius: 10,
   },
   amount: {
     color: Colors.primary,
