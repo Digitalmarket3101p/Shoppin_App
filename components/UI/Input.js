@@ -1,45 +1,10 @@
 import {StyleSheet, Text, View, TextInput} from 'react-native';
-import React, {useEffect, useReducer} from 'react';
-
-const INPUT_CHANGE = 'INPUT_CHANGE';
-const INPUT_BLUR = 'INPUT_BLUR';
-
-const inputReducer = (state, action) => {
-  switch (action.type) {
-    case INPUT_CHANGE:
-      return {
-        ...state,
-        value: action.value,
-        isValid: action.isValid,
-      };
-    case INPUT_BLUR:
-      return {
-        ...state,
-        touched: true,
-      };
-    default:
-      return state;
-  }
-};
+import React, {useState} from 'react';
 
 const Input = props => {
-  const [inputState, dispatch] = useReducer(inputReducer, {
-    value: props.initialValue ? props.initialValue : '',
-    isValid: props.initialValid,
-    touched: false,
-  });
+  const {id} = props;
 
-  const {onInputChange, id} = props;
-
-  useEffect(() => {
-    if (inputState.touched) {
-      onInputChange(id, inputState.value, inputState.isValid);
-    }
-  }, [inputState, onInputChange, id]);
-
-  const lostFocusHandler = () => {
-    dispatch({type: INPUT_BLUR});
-  };
+  const [isModifiedFieldValid, setIsModifiedFieldValid] = useState(false);
 
   const validateInput = text => {
     const {required, email, min, max, minLength} = props;
@@ -63,9 +28,26 @@ const Input = props => {
     if (minLength !== null && text.length < minLength) {
       isValid = false;
     }
-
-    dispatch({type: INPUT_CHANGE, value: text, isValid: isValid});
     return isValid;
+  };
+
+  const inputChangeHandler = changedText => {
+    const isValid = validateInput(changedText);
+    if (isValid === false) {
+      setIsModifiedFieldValid(!isValid);
+    }
+
+    if (isValid === true) {
+      setIsModifiedFieldValid(!isValid);
+    }
+    // if (isValid) {
+    props.setEditedData(prevState => {
+      return {
+        ...prevState,
+        [id]: changedText,
+      };
+    });
+    //
   };
 
   return (
@@ -74,11 +56,10 @@ const Input = props => {
       <TextInput
         {...props}
         style={{...styles.input, ...props.inputStyle}}
-        value={inputState.value}
-        onChangeText={validateInput}
-        onBlur={lostFocusHandler}
+        value={props.initialValue}
+        onChangeText={inputChangeHandler}
       />
-      {!inputState.isValid && inputState.touched && (
+      {isModifiedFieldValid && (
         <Text style={{...styles.errorText, ...props.errorTextStyle}}>
           {props.errorText}
         </Text>
