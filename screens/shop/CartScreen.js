@@ -39,7 +39,7 @@ const CartScreen = props => {
         <Text style={styles.summaryText}>
           Total:{' '}
           <Text style={styles.amount}>
-            {Number(cartTotalAmount).toFixed(2)}$
+            ${Number(cartTotalAmount).toFixed(2)}
           </Text>
         </Text>
         <Button
