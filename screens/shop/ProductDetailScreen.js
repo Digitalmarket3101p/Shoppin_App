@@ -5,7 +5,6 @@ import Colors from '../../constants/Colors';
 import * as cartActions from '../../store/actions/cart';
 const ProductDetailScreen = props => {
   const selectedProduct = useSelector(state => {
-    // console.log("hello",state);
     const productId = props.route.params.productId;
     return state.products.userProducts.find(prod => prod.id === productId);
   });

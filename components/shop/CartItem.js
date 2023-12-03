@@ -6,12 +6,12 @@ import Colors from '../../constants/Colors';
 const CartItem = props => {
   return (
     <View style={styles.cartItem}>
-      <Text style={styles.itemdata}>
-        <Text style={styles.quantity}>{props.qunatity}</Text>
+      <View style={styles.item}>
+        <Text style={styles.quantity}>{props.quantity}</Text>
         <Text style={styles.title}>{props.title}</Text>
-      </Text>
+      </View>
       <View style={styles.itemdata}>
-        <Text style={styles.amount}>${props.amount.toFixed(2)}</Text>
+        <Text style={styles.amount}>${Number(props.amount).toFixed(2)}</Text>
         {props.deletable && (
           <TouchableOpacity
             onPress={props.onRemove}
@@ -32,20 +32,24 @@ export default CartItem;
 
 const styles = StyleSheet.create({
   cartItem: {
-   
-    padding: 10,
+    padding: 1,
     backgroundColor: 'white',
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginHorizontal: 20,
+
+    marginHorizontal: 0,
   },
   itemdata: {
-  
     flexDirection: 'row',
     alignItems: 'center',
-   
-    margin:10,
-
+    margin: 10,
+  },
+  item: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    margin: 10,
+    gap: 5,
+    flexGrow: 1,
   },
   quantity: {
     fontFamily: 'Bold',

@@ -24,6 +24,10 @@ const rootReducer = combineReducers({
 const store = configureStore({
   reducer: rootReducer, // Pass the rootReducer to the store
   composedEnhancer,
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 const App = () => {

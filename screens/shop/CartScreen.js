@@ -10,7 +10,6 @@ import Card from '../../components/UI/Card';
 
 const selectCartItem = state => {
   const transformedCartItems = [];
-  console.log('state', state.cart.items);
   for (const key in state.cart.items) {
     transformedCartItems.push({
       productId: key,
@@ -40,7 +39,7 @@ const CartScreen = props => {
         <Text style={styles.summaryText}>
           Total:{' '}
           <Text style={styles.amount}>
-            ${Math.round(cartTotalAmount.toFixed(2) * 100) / 100}
+            {Number(cartTotalAmount).toFixed(2)}$
           </Text>
         </Text>
         <Button
@@ -48,8 +47,12 @@ const CartScreen = props => {
           title="Order Now"
           disabled={cartItems.length === 0}
           onPress={() => {
-            // console.log('hjhjh', cartItems);
-            dispatch(orderActions.addOrder(cartItems, cartTotalAmount));
+            dispatch(
+              orderActions.addOrder(
+                cartItems,
+                Number(cartTotalAmount).toFixed(2),
+              ),
+            );
           }}
         />
       </Card>
@@ -58,7 +61,7 @@ const CartScreen = props => {
         keyExtractor={item => item.productId}
         renderItem={itemData => (
           <CartItem
-            qunatity={itemData.item.quantity}
+            quantity={itemData.item.quantity}
             title={itemData.item.productTitle}
             amount={itemData.item.sum}
             deletable

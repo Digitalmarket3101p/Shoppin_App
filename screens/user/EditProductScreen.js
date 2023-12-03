@@ -1,123 +1,88 @@
-import React, {useCallback, useReducer, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   ScrollView,
   StyleSheet,
   View,
-  Alert,
   TouchableOpacity,
   KeyboardAvoidingView,
 } from 'react-native';
-
 import {useSelector, useDispatch} from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Colors from '../../constants/Colors';
 import * as productActions from '../../store/actions/products';
 import Input from '../../components/UI/Input';
-const REDUCER_UPDATE = 'UPDATE';
-const formReducer = (state, action) => {
-  if (action.type === 'UPDATE') {
-    const updatedValues = {
-      ...state.inputValues,
-      [action.input]: action.value,
-    };
-    const updatedValidites = {
-      ...state.inputValidities,
-      [action.input]: action.isValid,
-    };
-    let updatedformIsValid = true;
-    for (const key in updatedValidites) {
-      updatedformIsValid = updatedformIsValid && updatedValidites[key];
-    }
-    return {
-      formValid: updatedformIsValid,
-      inputValues: updatedValues,
-      inputValidities: updatedValidites,
-    };
-  }
-  return state;
-};
 
 const EditProductScreen = ({route, navigation}) => {
   const prodId = route.params ? route.params.productId : null;
-
   const editedProduct = useSelector(state =>
     state.products.userProducts.find(prod => prod.id === prodId),
   );
   const dispatch = useDispatch();
+  const [editedData, setEditedData] = useState();
+  const [_, setIsModifiedFieldValid] = useState({});
 
-  const [formState, dispatchFormState] = useReducer(formReducer, {
-    inputValues: {
-      title: editedProduct ? editedProduct.title : '',
-      imgUrl: editedProduct ? editedProduct.imgUrl : '',
-      description: editedProduct ? editedProduct.description : '',
-      price: '',
-    },
-    inputValidities: {
-      title: editedProduct ? true : false,
-      imgUrl: editedProduct ? true : false,
-      description: editedProduct ? true : false,
-      price: editedProduct ? true : false,
-    },
-    formValid: editedProduct ? true : false,
-  });
-
-  const submitHandler = useCallback(() => {
-    if (!formState.formValid) {
-      Alert.alert('Wrong input!', 'Please check the errors in the form.', [
-        {text: 'Okay'},
-      ]);
-      return;
-    }
+  const submitHandler = () => {
     if (editedProduct) {
-      dispatch(
-        productActions.updateProduct(
-          prodId,
-          formState.inputValues.title,
-          formState.inputValues.imgUrl,
-          formState.inputValues.price,
-          formState.inputValues.description,
-        ),
-      );
-    } else {
+      const errorObj = {};
+      for (const key in editedData) {
+        if (editedData[key] === '') {
+          errorObj[key] = true;
+        }
+      }
+      if (Object.keys(errorObj).length > 0) {
+        return;
+      } else {
+        setIsModifiedFieldValid({});
+        dispatch(
+          productActions.updateProduct(
+            prodId,
+            editedData.title,
+            editedData.imgUrl,
+            editedData.price,
+            editedData.description,
+          ),
+        );
+      }
+    } else if (prodId === null) {
       dispatch(
         productActions.createProduct(
-          formState.inputValues.title,
-          formState.inputValues.imgUrl,
-          formState.inputValues.price,
-          formState.inputValues.description,
+          editedData.title,
+          editedData.imgUrl,
+          editedData.price,
+          editedData.description,
         ),
       );
     }
     navigation.goBack();
-  }, [dispatch, prodId, formState, navigation]);
+  };
+
+  navigation.setOptions({
+    headerTitle: prodId ? 'Edit Product' : 'Add Product',
+    headerRight: () => (
+      <TouchableOpacity style={{marginRight: 15}}>
+        <Icon
+          name="check"
+          size={30}
+          color={Platform.OS === 'android' ? 'white' : Colors.primary}
+          onPress={submitHandler}
+        />
+      </TouchableOpacity>
+    ),
+  });
+
   useEffect(() => {
-    // navigation.setParams({submit: submitHandler});
-    navigation.setOptions({
-      headerTitle: prodId ? 'Edit Product' : 'Add Product',
-      headerRight: () => (
-        <TouchableOpacity style={{marginRight: 15}}>
-          <Icon
-            name="check"
-            size={30}
-            color={Platform.OS === 'android' ? 'white' : Colors.primary}
-            onPress={submitHandler}
-          />
-        </TouchableOpacity>
-      ),
-    });
-  }, [prodId, navigation, submitHandler]);
-  // ... (other code)
-  const inputChangeHandler = useCallback(
-    (inputIdentifier, inputValue, inputValidity) => {
-      dispatchFormState({
-        type: REDUCER_UPDATE,
-        value: inputValue,
-        isValid: inputValidity,
-        input: inputIdentifier,
+    if (prodId) {
+      setEditedData(editedProduct);
+    } else {
+      setEditedData({
+        title: '',
+        imgUrl: '',
+        description: '',
+        price: '',
       });
-    },
-    [dispatchFormState],
-  );
+    }
+  }, [prodId]);
+
   return (
     <KeyboardAvoidingView
       style={{flex: 1}}
@@ -133,9 +98,9 @@ const EditProductScreen = ({route, navigation}) => {
             autoCapitalize="sentences"
             autoCorrect
             returnKeyType="next"
-            onInputChange={inputChangeHandler}
-            initialValue={editedProduct ? editedProduct.title : ''}
+            initialValue={editedData ? editedData.title : ''}
             initialValid={!!editedProduct}
+            setEditedData={setEditedData}
             required
           />
           <Input
@@ -144,25 +109,11 @@ const EditProductScreen = ({route, navigation}) => {
             errorText="Please enter a valid image URL!"
             keyboardType="default"
             returnKeyType="next"
-            onInputChange={inputChangeHandler}
-            initialValue={editedProduct ? editedProduct.imgUrl : ''}
+            initialValue={editedData ? editedData.imgUrl : ''}
             initialValid={!!editedProduct}
+            setEditedData={setEditedData}
             required
           />
-
-          {!editedProduct && (
-            <Input
-              id="price"
-              label="Price"
-              errorText="Please enter a valid price!"
-              onInputChange={inputChangeHandler}
-              keyboardType="decimal-pad"
-              returnKeyType="next"
-              required
-              min={0.1}
-            />
-          )}
-
           <Input
             id="description"
             label="Description"
@@ -172,12 +123,25 @@ const EditProductScreen = ({route, navigation}) => {
             autoCorrect
             multiline
             numberOfLines={3}
-            onInputChange={inputChangeHandler}
-            initialValue={editedProduct ? editedProduct.description : ''}
+            initialValue={editedData ? editedData.description : ''}
             initialValid={!!editedProduct}
+            setEditedData={setEditedData}
             required
             minLength={5}
           />
+
+          {!editedProduct && (
+            <Input
+              id="price"
+              label="Price"
+              errorText="Please enter a valid price!"
+              keyboardType="decimal-pad"
+              returnKeyType="next"
+              setEditedData={setEditedData}
+              required
+              min={0.1}
+            />
+          )}
         </View>
       </ScrollView>
     </KeyboardAvoidingView>

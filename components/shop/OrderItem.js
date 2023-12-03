@@ -1,21 +1,22 @@
-import { Button, StyleSheet, Text, View } from 'react-native';
-import React, { useState } from 'react';
+import {Button, StyleSheet, Text, View} from 'react-native';
+import React, {useState} from 'react';
 import CartItem from './CartItem';
 import Colors from '../../constants/Colors';
 import Card from '../UI/Card';
 
-const OrderItem = (props) => {
+const OrderItem = props => {
   const [showDetail, setShowDetail] = useState(false);
-console.log("hii", props.items);
-  // Check if props.items is an array before using map
-  
+
   const renderCartItems = () => {
-    if (!props.items || !Array.isArray(props.items) || props.items.length === 0) {
+    if (
+      !props.items ||
+      !Array.isArray(props.items) ||
+      props.items.length === 0
+    ) {
       return <Text>No items found.</Text>;
     }
 
     return props.items.map((cartItem, index) => (
-        // console.log("dfdfdfdf",cartItem)
       <CartItem
         key={index}
         qunatity={cartItem.quantity}
@@ -35,13 +36,11 @@ console.log("hii", props.items);
         color={Colors.primary}
         title={showDetail ? 'Hide details' : 'Show details'}
         onPress={() => {
-          setShowDetail((prevState) => !prevState);
+          setShowDetail(prevState => !prevState);
         }}
       />
       {showDetail && (
-        <View style={styles.detailItems}>
-          {renderCartItems()}
-        </View>
+        <View style={styles.detailItems}>{renderCartItems()}</View>
       )}
     </Card>
   );
@@ -51,10 +50,9 @@ export default OrderItem;
 
 const styles = StyleSheet.create({
   orderItem: {
-    
     margin: 20,
     padding: 10,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   summary: {
     flexDirection: 'row',
@@ -70,7 +68,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: 'silver',
   },
-  detailItems:{
-    width:'100%'
-  }
+  detailItems: {
+    width: '100%',
+  },
 });
