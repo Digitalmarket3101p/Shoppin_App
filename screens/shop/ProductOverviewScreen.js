@@ -22,7 +22,7 @@ const ProductOverviewScreen = props => {
 
   const loadProducts = useCallback(async () => {
     setError(null);
-    setIsLoading(true);
+
     try {
       await dispatch(productActions.fetchProducts());
     } catch (error) {
@@ -41,7 +41,10 @@ const ProductOverviewScreen = props => {
   );
 
   useEffect(() => {
-    loadProducts();
+    setIsLoading(true);
+    loadProducts().then(() => {
+      setIsLoading(false);
+    });
   }, [dispatch, loadProducts]);
 
   const selectHandler = (id, title) => {
@@ -86,6 +89,8 @@ const ProductOverviewScreen = props => {
 
   return (
     <FlatList
+      onRefresh={loadProducts}
+      refreshing={isLoading}
       data={products.userProducts}
       renderItem={itemData => (
         <ProductItem

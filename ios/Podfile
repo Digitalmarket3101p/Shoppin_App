@@ -30,7 +30,12 @@ target 'shopping_App' do
 
   # Flags change depending on the env values.
   flags = get_default_flags()
-
+#     use_frameworks! :linkage => :static
+pod 'Firebase', :modular_headers => true
+pod 'FirebaseCore', :modular_headers => true
+pod 'GoogleUtilities', :modular_headers => true
+$RNFirebaseAsStaticFramework = true
+# Flags change depending on the env values.
   use_react_native!(
     :path => config[:reactNativePath],
     # Hermes is now enabled by default. Disable by setting this flag to false.
