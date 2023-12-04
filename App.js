@@ -10,9 +10,10 @@ import productReducer from './store/reducers/products';
 import ShopNavigator from './navigation/ShopNavigator';
 import cartReducer from './store/reducers/cart';
 import orderReducer from './store/reducers/order';
-
+import AuthHome from './screens/auth/AuthHome';
 import thunkMiddleware from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension';
+import AuthProvider from './providers/AuthProvider';
 
 const composedEnhancer = applyMiddleware(thunkMiddleware);
 const rootReducer = combineReducers({
@@ -33,9 +34,9 @@ const store = configureStore({
 const App = () => {
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <ShopNavigator />
-      </NavigationContainer>
+      <AuthProvider>
+        <AuthHome />
+      </AuthProvider>
     </Provider>
   );
 };

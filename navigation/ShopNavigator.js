@@ -12,6 +12,7 @@ import OrderScreen from '../screens/shop/OrderScreen';
 import Colors from '../constants/Colors';
 import UserProductScreen from '../screens/user/UserProductScreen';
 import EditProductScreen from '../screens/user/EditProductScreen';
+import AuthHome from '../screens/auth/AuthHome';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -55,11 +56,7 @@ const ProductsNavigator = () => {
                 navigation.navigate('CartScreen');
               }}
               style={{marginRight: 15}}>
-              <Icon
-                name="shopping-cart"
-                size={30}
-                color= {Colors.primary}
-              />
+              <Icon name="shopping-cart" size={30} color={Colors.primary} />
             </TouchableOpacity>
           ),
           drawerIcon: ({color, size}) => (
