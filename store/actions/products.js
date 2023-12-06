@@ -1,4 +1,4 @@
-import Product from '../../models/product';
+import Product from '../../src/models/product';
 
 export const DELETE_PRODUCT = 'DELETE_PRODUCT';
 export const CREATE_PRODUCT = 'CREATE_PRODUCT';
