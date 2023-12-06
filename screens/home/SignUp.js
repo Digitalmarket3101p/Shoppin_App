@@ -52,19 +52,21 @@ const SignUp = ({navigation: {navigate}}) => {
     <SafeAreaView>
       <View style={{padding: 20}}>
         <View style={{alignItems: 'center'}}>
-          <Text style={{
+          <Text
+            style={{
+              textShadowColor: 'pink', // Set the shadow color to pink
+              textShadowOffset: {width: 2, height: 2}, // Set the shadow offset
+              textShadowRadius: 5,
               fontSize: 20,
               color: 'black',
               marginVertical: 10,
               fontWeight: 'bold',
-              textShadowColor: 'pink',  // Set the shadow color to pink
-              textShadowOffset: { width: 2, height: 2 },  // Set the shadow offset
-              textShadowRadius: 5, fontSize: 20,
-              color: 'black',
-              marginVertical: 10,
-              fontWeight: 'bold',
-              shadowColor:'pink'
-            }}>WELCOME TO THE SHOPPING APP</Text>
+              shadowColor: 'pink',
+              marginTop:80
+              
+            }}>
+            WELCOME TO THE SHOPPING APP
+          </Text>
         </View>
         <View style={{alignItems: 'center'}}>
           <Text

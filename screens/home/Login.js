@@ -49,20 +49,20 @@ const Login = ({navigation: {navigate}}) => {
   return (
     <SafeAreaView>
       <View style={{padding: 20}}>
-      <View style={{alignItems: 'center'}}>
-          <Text style={{
+        <View style={{alignItems: 'center'}}>
+          <Text
+            style={{
+              textShadowColor: 'pink', // Set the shadow color to pink
+              textShadowOffset: {width: 2, height: 2}, // Set the shadow offset
+              textShadowRadius: 5,
               fontSize: 20,
               color: 'black',
               marginVertical: 10,
               fontWeight: 'bold',
-              textShadowColor: 'pink',  // Set the shadow color to pink
-              textShadowOffset: { width: 2, height: 2 },  // Set the shadow offset
-              textShadowRadius: 5, fontSize: 20,
-              color: 'black',
-              marginVertical: 10,
-              fontWeight: 'bold',
-              shadowColor:'pink'
-            }}>WELCOME TO THE SHOPPING APP</Text>
+              marginTop:80
+            }}>
+            WELCOME TO THE SHOPPING APP
+          </Text>
         </View>
         <View style={{alignItems: 'center'}}>
           <Text
@@ -111,7 +111,8 @@ const Login = ({navigation: {navigate}}) => {
             navigate('Signup');
           }}
           style={{padding: 20, marginVertical: 30}}>
-          <Text style={{color: Colors.primary, textAlign: 'center', fontSize: 20}}>
+          <Text
+            style={{color: Colors.primary, textAlign: 'center', fontSize: 20}}>
             Create new account ?
           </Text>
         </TouchableOpacity>
