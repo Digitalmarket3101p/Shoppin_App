@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {Provider} from 'react-redux';
 import {
@@ -6,15 +6,14 @@ import {
   combineReducers,
   applyMiddleware,
 } from '@reduxjs/toolkit';
+// import {createStackNavigator} from '@react-navigation/stack';
 import productReducer from './store/reducers/products';
-import ShopNavigator from './navigation/ShopNavigator';
 import cartReducer from './store/reducers/cart';
 import orderReducer from './store/reducers/order';
-import AuthHome from './screens/auth/AuthHome';
 import thunkMiddleware from 'redux-thunk';
-import {composeWithDevTools} from 'redux-devtools-extension';
-import AuthProvider from './providers/AuthProvider';
+import ProductsNavigator from './navigation/ShopNavigator';
 
+// const Stack = createStackNavigator();
 const composedEnhancer = applyMiddleware(thunkMiddleware);
 const rootReducer = combineReducers({
   products: productReducer,
@@ -23,7 +22,7 @@ const rootReducer = combineReducers({
 });
 
 const store = configureStore({
-  reducer: rootReducer, // Pass the rootReducer to the store
+  reducer: rootReducer,
   composedEnhancer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
@@ -34,24 +33,28 @@ const store = configureStore({
 const App = () => {
   return (
     <Provider store={store}>
-      <AuthProvider>
-        <AuthHome />
-      </AuthProvider>
+      <NavigationContainer>
+        {/* <Stack.Navigator>
+          <Stack.Screen
+            name="Signup"
+            component={SignUp}
+            options={{headerShown: true}}
+          />
+          <Stack.Screen
+            name="Login"
+            component={Login}
+            options={{headerShown: true}}
+          />
+          <Stack.Screen
+        name="All Products"
+        component={ProductOverviewScreen}
+        options={{headerShown: false}} // Add this line to hide the header
+      />
+        </Stack.Navigator> */}
+        <ProductsNavigator />
+      </NavigationContainer>
     </Provider>
   );
 };
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-//   title: {
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//     // backgroundColor: 'green',
-//   },
-// });
 
 export default App;
