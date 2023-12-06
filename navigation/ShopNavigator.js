@@ -125,12 +125,12 @@ const ProductsNavigator = () => {
       <Stack.Screen
         name="Signup"
         component={SignUp}
-        options={{headerShown: true}}
+        options={{headerShown: false}}
       />
       <Stack.Screen
         name="Login"
         component={Login}
-        options={{headerShown: true}}
+        options={{headerShown: false}}
       />
 
       <Stack.Screen

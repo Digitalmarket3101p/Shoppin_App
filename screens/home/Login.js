@@ -13,6 +13,7 @@ import AppInput from '../../components/UI/AppInput';
 // import auth from '@react-native-firebase/auth';
 import * as authActions from '../../store/actions/auth';
 import {useDispatch} from 'react-redux';
+import Colors from '../../constants/Colors';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Login = ({navigation: {navigate}}) => {
@@ -48,11 +49,26 @@ const Login = ({navigation: {navigate}}) => {
   return (
     <SafeAreaView>
       <View style={{padding: 20}}>
+      <View style={{alignItems: 'center'}}>
+          <Text style={{
+              fontSize: 20,
+              color: 'black',
+              marginVertical: 10,
+              fontWeight: 'bold',
+              textShadowColor: 'pink',  // Set the shadow color to pink
+              textShadowOffset: { width: 2, height: 2 },  // Set the shadow offset
+              textShadowRadius: 5, fontSize: 20,
+              color: 'black',
+              marginVertical: 10,
+              fontWeight: 'bold',
+              shadowColor:'pink'
+            }}>WELCOME TO THE SHOPPING APP</Text>
+        </View>
         <View style={{alignItems: 'center'}}>
           <Text
             style={{
               fontSize: 30,
-              color: '#f6880e',
+              color: Colors.primary,
               marginVertical: 10,
               fontWeight: 'bold',
             }}>
@@ -80,7 +96,7 @@ const Login = ({navigation: {navigate}}) => {
             padding: 20,
             marginVertical: 10,
             borderRadius: 10,
-            backgroundColor: '#f6880e',
+            backgroundColor: Colors.primary,
             shadowOffset: {width: 0, height: 10},
             shadowOpacity: 0.3,
             shadowRadius: 10,
@@ -95,7 +111,7 @@ const Login = ({navigation: {navigate}}) => {
             navigate('Signup');
           }}
           style={{padding: 20, marginVertical: 30}}>
-          <Text style={{color: 'orange', textAlign: 'center', fontSize: 20}}>
+          <Text style={{color: Colors.primary, textAlign: 'center', fontSize: 20}}>
             Create new account ?
           </Text>
         </TouchableOpacity>
