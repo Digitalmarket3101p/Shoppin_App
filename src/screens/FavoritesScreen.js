@@ -3,9 +3,9 @@ import {StyleSheet, FlatList, View} from 'react-native';
 
 import {Context as ProductContext} from '../context/product/ProductContext';
 import ProductItem from '../components/shop/ProductItem';
-import Icon from '../components/icons/LightIcons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const CartIcon = () => <Icon name="cart-o" color="white" size={20} />;
+const CartIcon = () => <Icon name="shopping-cart" color="green" size={20} />;
 
 const FavoritesScreen = () => {
   const {

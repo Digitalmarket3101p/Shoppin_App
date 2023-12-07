@@ -4,7 +4,6 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {useTheme} from '@react-navigation/native';
 
 import UserProductsScreen from '../screens/UserProductsScreen';
-import Icon from '../components/icons/LightIcons';
 import EditProductScreen from '../screens/EditProductScreen';
 import {Colors} from '../constants/Colors';
 import CreateProductScreen from '../screens/CreateProductScreen';

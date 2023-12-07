@@ -12,11 +12,10 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		7A39AC8B486D4376815D5457 /* Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 086DCFED9AB444BA8AEA13E3 /* Bold.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		88F466F92B158DE00010EF05 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 88F466F82B158DE00010EF05 /* Fonts */; };
 		A068B772377ABCDB8174AFFC /* libPods-shopping_App-shopping_AppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E6279B8138D403A4C9E7A9 /* libPods-shopping_App-shopping_AppTests.a */; };
-		F9511D8E6889499499E6E04E /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FCF2BE14FA44024B40C39AA /* OpenSans-Regular.ttf */; };
+		
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */

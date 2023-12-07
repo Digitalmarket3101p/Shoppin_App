@@ -9,7 +9,7 @@ import {
   ScrollView,
   useWindowDimensions,
 } from 'react-native';
-import Icon from '../components/icons/LightIcons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {Context as ProductContext} from '../context/product/ProductContext';
 import {Context as CartContext} from '../context/cart/CartContext';
@@ -28,7 +28,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import FavoriteButton from '../components/shop/FavoriteButton';
 
-const CartIconOutline = () => <Icon name="cart-o" color="white" size={20} />;
+const CartIconOutline = () => <Icon name="shopping-cart" color="white" size={20} />;
 const snapValue = 24;
 
 const ProductDetailScreen = ({route, navigation}) => {

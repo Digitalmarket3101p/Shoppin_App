@@ -14,8 +14,8 @@ import {
   Text,
   RefreshControl,
 } from 'react-native';
-import Icon from '../components/icons/LightIcons';
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import ProductItem from '../components/shop/ProductItem';
 import {Context as ProductContext} from '../context/product/ProductContext';
 import {Context as CartContext} from '../context/cart/CartContext';
@@ -26,7 +26,7 @@ import {Context as AuthContext} from '../context/auth/AuthContext';
 
 const primaryColor = `rgb(${Colors.primary})`;
 const textSecondaryColor = `rgba(${Colors.text.secondary}, 0.7)`;
-const CartIcon = () => <Icon name="cart-o" color="white" size={20} />;
+const CartIcon = () => <Icon name="add-shopping-cart" color="white" size={20} />;
 
 const ProductsScreen = ({navigation}) => {
   const {
@@ -102,8 +102,8 @@ const ProductsScreen = ({navigation}) => {
   if (error.type === NO_PRODUCTS) {
     return (
       <View style={styles.centered}>
-        <Icon
-          name="emoticon-sad-outline"
+        <FontAwesome5
+          name="sad-cry"
           size={26}
           color={`rgba(${Colors.text.secondary}, 0.6)`}
         />
