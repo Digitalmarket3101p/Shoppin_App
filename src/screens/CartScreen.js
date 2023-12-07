@@ -10,9 +10,9 @@ import {Context as AuthContext} from '../context/auth/AuthContext';
 import {Colors} from '../constants/Colors';
 import ErrorModal from '../components/shop/ErrorModal';
 import {useSharedValue} from 'react-native-reanimated';
-import Icon from '../components/icons/LightIcons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const planeIcon = () => <Icon name="plane-o" color="white" size={20} />;
+const planeIcon = () => <Icon name="shopping-cart-checkout" color="white" size={20} />;
 
 const CartScreen = ({navigation}) => {
   const {
@@ -74,7 +74,7 @@ const CartScreen = ({navigation}) => {
       </ScrollView>
       <ActionComponent
         withSpinner
-        actionTitle="Order now"
+        actionTitle="Order Now"
         label="Total amount"
         amount={totalAmount}
         Icon={planeIcon}

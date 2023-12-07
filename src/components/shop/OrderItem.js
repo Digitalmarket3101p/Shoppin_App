@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import Icon from '../icons/LightIcons';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 import {Colors} from '../../constants/Colors';
 import Animated, {
@@ -74,7 +74,7 @@ const OrderItem = ({orderItem: {date, totalAmount, items}}) => {
                     padding: 5,
                     borderRadius: 50,
                   }}>
-                  <Icon name="down" color="white" size={10} />
+                  <Icon name="caretdown" color="white" size={10} />
                 </View>
               </Animated.View>
             </TouchableOpacity>

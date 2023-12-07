@@ -6,10 +6,10 @@ import {Context as ProductContext} from '../context/product/ProductContext';
 import {Context as CartContext} from '../context/cart/CartContext';
 import {CommonActions} from '@react-navigation/native';
 import {Colors} from '../constants/Colors';
-import Icon from '../components/icons/LightIcons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const textSecondaryColor = `rgba(${Colors.text.secondary}, 0.7)`;
-const DeleteIcon = () => <Icon name="trash-o" size={20} color="white" />;
+const DeleteIcon = () => <Icon name="restore-from-trash" size={20} color="white" />;
 
 const UserProductsScreen = ({navigation}) => {
   const {

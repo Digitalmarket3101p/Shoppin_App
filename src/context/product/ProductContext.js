@@ -13,7 +13,7 @@ import {
   REMOVE_FROM_FAVORITES,
   SET_FAVORITES,
 } from './types';
-import {Product} from '../../models/product';
+import Product from '../../models/product';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const initialState = {
@@ -182,9 +182,12 @@ const setProductsNavKey = dispatch => key => {
 const getProducts = dispatch => async userId => {
   try {
     const response = await shopApi.get('/products.json');
+
     const data = response.data;
+    console.log('nil', data);
     const products = [];
     for (let key in data) {
+      console.log('hjhjh', data[key].price);
       products.push(
         new Product(
           key,
@@ -197,6 +200,7 @@ const getProducts = dispatch => async userId => {
       );
     }
     if (products.length) {
+      console.log('producrs', products);
       dispatch({type: SET_PRODUCTS, payload: {products, userId}});
     } else {
       const error = {
