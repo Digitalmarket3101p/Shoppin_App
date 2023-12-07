@@ -12,7 +12,7 @@ import {
   SET_PASSWORD_VALIDATION,
 } from './inputTypes';
 import LabledInput from './LabledInput';
-import Icon from '../icons/LightIcons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const primaryColor = `rgb(${Colors.primary})`;
 const labelDefaultColor = `rgb(${Colors.text.secondary})`;
@@ -168,7 +168,7 @@ const AuthForm = ({buttonTitle, onSubmit}) => {
         autoCapitalize="none"
         label="Email"
         placeholder="somebody@example.com"
-        Icon={({color}) => <Icon name="letter-o" size={20} color={color} />}
+        Icon={({color}) => <Icon name="email" size={20} color={color} />}
         keyboardType="email-address"
         value={state.email.value}
         isValid={state.email.isValid}
@@ -186,7 +186,7 @@ const AuthForm = ({buttonTitle, onSubmit}) => {
         required
         secure
         placeholder="Enter your passowrd"
-        Icon={({color}) => <Icon name="lock-o" size={20} color={color} />}
+        Icon={({color}) => <Icon name="password" size={20} color={color} />}
         autoCapitalize="none"
         label="Password"
         value={state.password.value}

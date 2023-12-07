@@ -13,7 +13,7 @@ import {
   DrawerItemList,
 } from '@react-navigation/drawer';
 
-import Icon from '../components/icons/LightIcons';
+import Icon from 'react-native-vector-icons/AntDesign';
 import {Colors} from '../constants/Colors';
 import OrdersScreen from '../screens/OrdersScreen';
 import AdminNavigator from './AdminNavigator';
@@ -24,7 +24,7 @@ import FavoritesNavigator from './FavoritesNavigator';
 const textColor = `rgba(${Colors.text.primary}, 0.7)`;
 const Drawer = createDrawerNavigator();
 
-const CartIcon = ({color}) => <Icon name="cart-o" size={20} color={color} />;
+const CartIcon = ({color}) => <Icon name="shoppingcart" size={20} color={color} />;
 const ShopIcon = ({color}) => <Icon name="shop-o" size={20} color={color} />;
 const userIcon = ({color}) => <Icon name="user-o" size={20} color={color} />;
 const starIcon = ({color}) => <Icon name="star-o" size={20} color={color} />;
