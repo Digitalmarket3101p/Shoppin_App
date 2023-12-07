@@ -56,6 +56,7 @@ const cartReducer = (state, {type, payload}) => {
 
     case REMOVE_FROM_CART: {
       const prodId = payload.id;
+     
       if (state.items[prodId]) {
         const updatedItems = {};
         const newAmount = state.totalAmount - state.items[prodId].total;
@@ -89,6 +90,7 @@ const decreaseQuantity = dispatch => product => {
 };
 
 const removeFromCart = dispatch => product => {
+  
   dispatch({type: REMOVE_FROM_CART, payload: product});
 };
 

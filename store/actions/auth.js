@@ -1,7 +1,7 @@
 export const SIGNUP = 'SIGNUP';
 export const LOGIN = 'LOGIN';
 export const signup = (email, password) => {
-  console.log('hello', email, password);
+  
   return async dispatch => {
     try {
       const response = await fetch(
@@ -25,7 +25,7 @@ export const signup = (email, password) => {
       }
 
       const resData = await response.json();
-      console.log('ggg', resData);
+    
       dispatch({type: SIGNUP});
     } catch (error) {
       console.error('Error during signup:', error);
@@ -35,7 +35,7 @@ export const signup = (email, password) => {
 };
 
 export const login = (email, password) => {
-  console.log('hello000', email, password);
+ 
   return async dispatch => {
     try {
       const response = await fetch(
@@ -59,7 +59,7 @@ export const login = (email, password) => {
       }
 
       const resData = await response.json();
-      console.log('ggg', resData);
+   
       dispatch({type: LOGIN});
     } catch (error) {
       console.error('Error during Login:', error);

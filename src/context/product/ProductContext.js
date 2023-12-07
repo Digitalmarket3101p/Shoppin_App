@@ -184,10 +184,10 @@ const getProducts = dispatch => async userId => {
     const response = await shopApi.get('/products.json');
 
     const data = response.data;
-    console.log('nil', data);
+   
     const products = [];
     for (let key in data) {
-      console.log('hjhjh', data[key].price);
+     
       products.push(
         new Product(
           key,

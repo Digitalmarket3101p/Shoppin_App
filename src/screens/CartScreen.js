@@ -49,7 +49,9 @@ const CartScreen = ({navigation}) => {
 
   const onAdd = useCallback(prod => addToCart(prod), []);
   const onDecrease = useCallback(prod => decreaseQuantity(prod), []);
-  const onRemove = useCallback(prod => removeFromCart(prod), []);
+  const onRemove =useCallback(prod =>console.log("gggggg",prod)
+    // removeFromCart(prod), []
+    );
 
   const scrollHeight = useRef(data.length * 115);
   const deletedIndex = useSharedValue(0);
