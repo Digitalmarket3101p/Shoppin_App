@@ -1,5 +1,5 @@
 import PRODUCTS from '../../data/dummy-data';
-import Product from '../../models/product';
+import Product from '../../src/models/product';
 import {
   CREATE_PRODUCT,
   DELETE_PRODUCT,

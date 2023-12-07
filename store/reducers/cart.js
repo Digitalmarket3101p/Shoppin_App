@@ -1,4 +1,4 @@
-import CartItem from '../../models/cart-item';
+import CartItem from '../../src/models/cartItem';
 import {ADD_TO_CART, REMOVE_FROM_CART} from '../actions/cart';
 import {ADD_ORDER} from '../actions/order';
 import {DELETE_PRODUCT} from '../actions/products';
