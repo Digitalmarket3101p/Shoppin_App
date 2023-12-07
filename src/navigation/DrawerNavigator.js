@@ -55,8 +55,21 @@ const screenOpts = {
 
 const drawerEdgeWidth = Dimensions.get('window').width / 4;
 
+// ... (your imports)
+
 const DrawerNavigator = () => {
   const {logout} = useContext(AuthContext);
+
+  const headerOptions = {
+    headerTitleStyle: {
+      fontFamily: 'Lato-Black',
+      fontSize: 28,
+      marginLeft: 20,
+    },
+    headerStyle: {
+      height: 120,
+    },
+  };
 
   return (
     <Drawer.Navigator
@@ -79,13 +92,16 @@ const DrawerNavigator = () => {
       )}
       drawerStyle={styles.drawerStyle}
       overlayColor={`rgba(${Colors.primaryDark}, 0.8)`}
-      edgeWidth={drawerEdgeWidth}
+      edgeWidth={Dimensions.get('window').width / 4}
       drawerContentOptions={drawerContentOpts}
-      screenOptions={screenOpts}>
+      screenOptions={headerOptions}>
       <Drawer.Screen
         name="ProductsFlow"
         component={ProductsNavigator}
-        options={{headerShown: false, drawerIcon: ShopIcon}}
+        options={{
+          headerShown: false,
+          drawerIcon: ShopIcon,
+        }}
       />
       <Drawer.Screen
         name="Orders"
@@ -115,7 +131,7 @@ const DrawerNavigator = () => {
         options={{
           drawerIcon: starIcon,
           drawerLabel: 'Favorites',
-          headerShown:false
+          headerShown: false,
         }}
       />
       <Drawer.Screen
@@ -124,7 +140,7 @@ const DrawerNavigator = () => {
         options={{
           title: 'My Products',
           drawerIcon: userIcon,
-          headerShown:false
+          headerShown: false,
         }}
       />
     </Drawer.Navigator>
@@ -160,3 +176,7 @@ const styles = StyleSheet.create({
     marginLeft: 30,
   },
 });
+
+
+
+  

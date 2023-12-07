@@ -37,6 +37,7 @@ const ProductItem = ({
   params,
   hideActionButton,
 }) => {
+  
   const navigation = useNavigation();
 
   const onItemPress = useCallback(() => {
@@ -58,7 +59,7 @@ const ProductItem = ({
     <BoxShadow setting={shadowOpts}>
       <TouchableOpacity activeOpacity={0.8} onPress={onItemPress}>
         <View style={styles.contentContainer}>
-          <Image style={[styles.image]} source={{uri: product.imageUrl}} />
+          <Image style={[styles.image]} source={{uri: product.imgUrl}} />
           <View style={styles.infoSection}>
             <View style={styles.details}>
               <Text style={styles.title}>{product.title}</Text>
