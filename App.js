@@ -10,7 +10,7 @@ import productReducer from './store/reducers/products';
 import ShopNavigator from './navigation/ShopNavigator';
 import cartReducer from './store/reducers/cart';
 import orderReducer from './store/reducers/order';
-import AuthHome from './screens/auth/AuthHome';
+import AuthHome from './screens/Auth/AuthHome';
 import thunkMiddleware from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import AuthProvider from './providers/AuthProvider';

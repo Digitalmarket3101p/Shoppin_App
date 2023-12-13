@@ -34,6 +34,7 @@ target 'shopping_App' do
 pod 'Firebase', :modular_headers => true
 pod 'FirebaseCore', :modular_headers => true
 pod 'GoogleUtilities', :modular_headers => true
+pod 'FirebaseFirestore', :modular_headers => true
 $RNFirebaseAsStaticFramework = true
 # Flags change depending on the env values.
   use_react_native!(

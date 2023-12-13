@@ -12,7 +12,7 @@ import OrderScreen from '../screens/shop/OrderScreen';
 import Colors from '../constants/Colors';
 import UserProductScreen from '../screens/user/UserProductScreen';
 import EditProductScreen from '../screens/user/EditProductScreen';
-import AuthHome from '../screens/auth/AuthHome';
+// import AuthHome from '../screens/Auth/AuthHome';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
